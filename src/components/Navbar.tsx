@@ -40,10 +40,12 @@ function Navbar() {
                     Favorites
                     <MdOutlineFavoriteBorder className="text-xl" title="Favorites" />
                 </span>
-                <span className="flex justify-start items-center text-lg font-medium gap-1  px-2 py-1 rounded-md border-2 border-transparent hover:border-[#FF9900] transition-all duration-300">
-                    Cart
-                    <FiShoppingCart className="text-xl" title="Cart" />
-                </span>
+                <Link href="/cart">
+                    <span className="flex justify-start items-center text-lg font-medium gap-1  px-2 py-1 rounded-md border-2 border-transparent hover:border-[#FF9900] transition-all duration-300">
+                        Cart
+                        <FiShoppingCart className="text-xl" title="Cart" />
+                    </span>
+                </Link>
 
                 <button className="bg-[#FF9900] py-2 px-3 text-sm font-medium uppercase rounded-md ">
                     Sign In
