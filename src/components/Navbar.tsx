@@ -1,8 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-
-import amazon_logo from "../assets/amazon_logo.png";
+import amazon_logo from "@/assets/amazon_logo.png";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { AiOutlineSearch } from "react-icons/ai";
 import { FiShoppingCart } from "react-icons/fi";

@@ -2,10 +2,10 @@
 import React from "react";
 import Image from "next/image";
 import { Carousel } from "react-responsive-carousel";
-import slider_image_1 from "../assets/images/sliderImages/slider_image_1.jpg";
-import slider_image_2 from "../assets/images/sliderImages/slider_image_2.jpg";
-import slider_image_3 from "../assets/images/sliderImages/slider_image_3.jpg";
-import slider_image_4 from "../assets/images/sliderImages/slider_image_4.jpg";
+import slider_image_1 from "@/assets/images/sliderImages/slider_image_1.jpg";
+import slider_image_2 from "@/assets/images/sliderImages/slider_image_2.jpg";
+import slider_image_3 from "@/assets/images/sliderImages/slider_image_3.jpg";
+import slider_image_4 from "@/assets/images/sliderImages/slider_image_4.jpg";
 
 function Banner() {
     return (
@@ -31,6 +31,7 @@ function Banner() {
                     <Image src={slider_image_4} alt="Banner Image 04" />
                 </div>
             </Carousel>
+            <div className="w-full h-40 bg-gradient-to-t from-zinc-300 to-transparent absolute bottom-0 z-20"></div>
         </div>
     );
 }

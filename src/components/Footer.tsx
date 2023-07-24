@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { AiOutlineToTop } from "react-icons/ai";
-import amazon_logo from "../assets/amazon_logo.png";
+import amazon_logo from "@/assets/amazon_logo.png";
 import Link from "next/link";
 function Footer() {
     const backToTop = () => {
