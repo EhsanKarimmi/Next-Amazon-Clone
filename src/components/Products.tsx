@@ -1,15 +1,19 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import { ProductsDataType } from "../../type";
 import { FiShoppingCart } from "react-icons/fi";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 import FormatterPrice from "./FormatterPrice";
+import { useDispatch } from "react-redux";
+import { addToCart } from "@/store/productSlice";
 
 interface PropsType {
     productsData: ProductsDataType[];
 }
 
 function Products({ productsData }: PropsType) {
+    const dispatch = useDispatch();
     return (
         <div className="bg-transparent mx-10 relative z-30 -mt-64 grid grid-cols-12 gap-5">
             {productsData.map((product) => {
@@ -53,7 +57,12 @@ function Products({ productsData }: PropsType) {
                             </p>
                         </div>
                         <div className="p-3 flex justify-center items-center">
-                            <button className="w-full p-2 uppercase font-medium rounded-sm bg-black text-white hover:bg-[#FF9900] transition-all duration-500">
+                            <button
+                                onClick={() =>
+                                    dispatch(addToCart({ ...product, quantity: 1 }))
+                                }
+                                className="w-full p-2 uppercase font-medium rounded-sm bg-black text-white hover:bg-[#FF9900] transition-all duration-500"
+                            >
                                 Add To Cart
                             </button>
                         </div>

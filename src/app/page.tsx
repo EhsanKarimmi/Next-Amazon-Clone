@@ -15,9 +15,7 @@ export default async function Home() {
     return (
         <main className="bg-zinc-300 pb-10">
             <Banner />
-            <div className="">
-                <Products productsData={productsData} />
-            </div>
+            <Products productsData={productsData} />
         </main>
     );
 }
