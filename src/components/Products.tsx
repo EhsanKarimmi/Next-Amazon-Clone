@@ -6,7 +6,7 @@ import { FiShoppingCart } from "react-icons/fi";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 import FormatterPrice from "./FormatterPrice";
 import { useDispatch } from "react-redux";
-import { addToCart } from "@/store/productSlice";
+import { addToCart, addToFavorites } from "@/store/productSlice";
 
 interface PropsType {
     productsData: ProductsDataType[];
@@ -29,10 +29,20 @@ function Products({ productsData }: PropsType) {
                                 className="  object-cover scale-90 hover:scale-100 transition-all duration-300  "
                             />
                             <div className="flex flex-col justify-center items-center  text-2xl text-zinc-700  bg-zinc-100 rounded-md absolute divide-y-2 divide-zinc-300 border-2 border-zinc-300 right-2 bottom-1/2 translate-x-16 group-hover:translate-x-0 transition-all duration-300 [&>*]:hover:cursor-pointer">
-                                <span className="p-3 rounded-t-md hover:bg-[#FF9900] transition-all duration-400">
+                                <span
+                                    onClick={() =>
+                                        dispatch(addToCart({ ...product, quantity: 1 }))
+                                    }
+                                    className="p-3 rounded-t-md hover:bg-[#FF9900] transition-all duration-400"
+                                >
                                     <FiShoppingCart />
                                 </span>
-                                <span className="p-3 rounded-b-md hover:bg-[#FF9900] transition-all duration-400">
+                                <span
+                                    onClick={() =>
+                                        dispatch(addToFavorites({ ...product, quantity: 1 }))
+                                    }
+                                    className="p-3 rounded-b-md hover:bg-[#FF9900] transition-all duration-400"
+                                >
                                     <MdOutlineFavoriteBorder />
                                 </span>
                             </div>

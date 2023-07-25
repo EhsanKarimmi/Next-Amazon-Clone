@@ -20,7 +20,7 @@ export interface StoreProductType {
     category: string;
     image: string;
     brand: string;
-    quantity: 1;
+    quantity: number;
 }
 
 export interface InitialStateType {
@@ -28,4 +28,12 @@ export interface InitialStateType {
     userFavoritesData: StoreProductType[];
     allProducts: StoreProductType[];
     userInformation: null | string;
+}
+
+export interface StateType {
+    userCartData: StoreProductType[];
+    userFavoritesData: StoreProductType[];
+    allProducts: StoreProductType[];
+    userInformation: null | string;
+    product: any;
 }

@@ -35,19 +35,15 @@ export const productSlice = createSlice({
             }
         },
         increaseQuantity: (state, action) => {
-            const existingProduct = state.userFavoritesData.find(
-                (product: StoreProductType) => {
-                    return product._id === action.payload._id;
-                }
-            );
+            const existingProduct = state.userCartData.find((product: StoreProductType) => {
+                return product._id === action.payload._id;
+            });
             existingProduct && existingProduct.quantity++;
         },
         decreaseQuantity: (state, action) => {
-            const existingProduct = state.userFavoritesData.find(
-                (product: StoreProductType) => {
-                    return product._id === action.payload._id;
-                }
-            );
+            const existingProduct = state.userCartData.find((product: StoreProductType) => {
+                return product._id === action.payload._id;
+            });
             if (existingProduct?.quantity === 1) {
                 existingProduct.quantity = 1;
             } else {
@@ -55,7 +51,7 @@ export const productSlice = createSlice({
             }
         },
         deleteProduct: (state, action) => {
-            const existingProduct = state.userCartData.find((product: StoreProductType) => {
+            state.userCartData = state.userCartData.filter((product: StoreProductType) => {
                 return product._id !== action.payload._id;
             });
         },

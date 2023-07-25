@@ -6,7 +6,13 @@ import { HiOutlineLocationMarker } from "react-icons/hi";
 import { AiOutlineSearch } from "react-icons/ai";
 import { FiShoppingCart } from "react-icons/fi";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
+import { useSelector } from "react-redux";
+import { StateType } from "../../type";
 function Navbar() {
+    const { userCartData, userFavoritesData } = useSelector(
+        (state: StateType) => state.product
+    );
+
     return (
         <nav className="w-full h-16 bg-[#131921] px-5 flex justify-between items-center text-white">
             {/* Logo and location */}
@@ -35,14 +41,22 @@ function Navbar() {
             </div>
             {/* Favorites,Cart,Account */}
             <div className="flex justify-center items-center gap-7 [&>*]:cursor-pointer">
-                <span className="flex justify-start items-center text-lg font-medium gap-1  px-2 py-1 rounded-md border-2 border-transparent hover:border-[#FF9900] transition-all duration-300">
+                <span className="flex justify-start items-center relative text-lg font-medium gap-1  px-2 py-1 rounded-md border-2 border-transparent hover:border-[#FF9900] transition-all duration-300">
                     Favorites
-                    <MdOutlineFavoriteBorder className="text-xl" title="Favorites" />
+                    <MdOutlineFavoriteBorder className="text-2xl" title="Favorites" />
+                    {userFavoritesData.length > 0 && (
+                        <span className="absolute right-2 top-2 animate-ping w-2 h-2 flex items-center justify-center rounded-full bg-[#FF9900] text-sm font-normal"></span>
+                    )}
                 </span>
                 <Link href="/cart">
-                    <span className="flex justify-start items-center text-lg font-medium gap-1  px-2 py-1 rounded-md border-2 border-transparent hover:border-[#FF9900] transition-all duration-300">
+                    <span className="flex justify-start items-center relative text-lg font-medium gap-1  px-2 py-1 rounded-md border-2 border-transparent hover:border-[#FF9900] transition-all duration-300">
                         Cart
-                        <FiShoppingCart className="text-xl" title="Cart" />
+                        <FiShoppingCart className="text-3xl" title="Cart" />
+                        {userCartData.length > 0 && (
+                            <span className="absolute right-[0.6rem] bottom-1/2  w-5 h-5 flex items-center justify-center rounded-full bg-[#FF9900] text-sm font-normal">
+                                {userCartData.length > 0 && userCartData.length}
+                            </span>
+                        )}
                     </span>
                 </Link>
 

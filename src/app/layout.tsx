@@ -6,7 +6,8 @@ import type { Metadata } from "next";
 import BottomHeader from "@/components/BottomHeader";
 import Footer from "@/components/Footer";
 import { Provider } from "react-redux";
-import { store } from "@/store/store";
+import { persistor, store } from "@/store/store";
+import { PersistGate } from "redux-persist/integration/react";
 
 export const metadata: Metadata = {
     title: "Amazon Clone",
@@ -18,10 +19,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <html lang="en">
             <body suppressHydrationWarning={true}>
                 <Provider store={store}>
-                    <Navbar />
-                    <BottomHeader />
-                    {children}
-                    <Footer />
+                    <PersistGate persistor={persistor} loading={null}>
+                        <Navbar />
+                        <BottomHeader />
+                        {children}
+                        <Footer />
+                    </PersistGate>
                 </Provider>
             </body>
         </html>
