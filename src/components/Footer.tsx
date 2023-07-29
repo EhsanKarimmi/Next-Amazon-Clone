@@ -16,7 +16,7 @@ function Footer() {
             {/* Back to top */}
             <button
                 onClick={backToTop}
-                className="w-full h-10 bg-[#131921] bg-opacity-90 text-white flex justify-center items-center gap-2 hover:opacity-80 transition-all duration-300 uppercase text-lg font-medium"
+                className="w-full h-10 bg-[#131921] bg-opacity-90 text-white flex justify-center items-center gap-2 hover:opacity-80 transition-all duration-300 uppercase xs:text-base lg:text-lg font-medium"
             >
                 Back To Top
                 <AiOutlineToTop className="text-2xl" />
@@ -26,11 +26,11 @@ function Footer() {
                     <Image
                         src={amazon_logo}
                         alt="Amazon Logo"
-                        className="w-28 cursor-pointer"
+                        className="xs:w-20 lg:w-28 cursor-pointer"
                         priority={true}
                     />
                 </Link>
-                <p className="text-base font-medium">
+                <p className="xs:text-sm lg:text-base font-medium">
                     All Rights Reserved : &nbsp;
                     <a href="https://github.com/EhsanKarimmi" target="_blank">
                         EhsaN.Karimi
