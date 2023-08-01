@@ -15,7 +15,7 @@ function CartPayment() {
         setAmount(total);
     }, [userCartData]);
     return (
-        <div className="mt-5 mb-20  space-y-5 p-4 pt-5 bg-zinc-200 rounded-md">
+        <div className="mt-5 xs:mb-10 lg:mb-20  space-y-5 p-4 pt-5 bg-zinc-200 rounded-md">
             <div className="flex justify-between items-center font-semibold text-lg">
                 <span>Total</span>
                 <span>

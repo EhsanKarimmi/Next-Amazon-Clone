@@ -4,7 +4,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import amazon_logo from "@/assets/amazon_logo.png";
 import { HiOutlineLocationMarker } from "react-icons/hi";
-import { AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineSearch, AiOutlineHome } from "react-icons/ai";
 import { FiShoppingCart } from "react-icons/fi";
 import { IoCloseSharp } from "react-icons/io5";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
@@ -26,28 +26,28 @@ function Navbar() {
                     <Image
                         src={amazon_logo}
                         alt="Amazon Logo"
-                        className="xs:w-16 sm:w-20 w-24 cursor-pointer"
+                        className="xs:w-16 sm:w-20 lg:w-24 cursor-pointer"
                         priority={true}
                     />
                 </Link>
-                <div className="xs:hidden flex justify-start items-center gap-1 text-lg font-medium  py-1 px-2 rounded-md cursor-pointer border-2 border-transparent hover:border-[#FF9900] transition-all duration-300">
-                    <span className="opacity-70">Deliver To</span>
+                <div className="xs:hidden lg:flex lg:justify-start lg:items-center gap-1 lg:text-base xl:text-lg font-medium  py-1 px-2 rounded-md cursor-pointer border-2 border-transparent hover:border-[#FF9900] transition-all duration-300">
+                    <span className="opacity-70 lg:w-20 xl:w-auto">Deliver To</span>
                     <HiOutlineLocationMarker className="text-2xl" />
                 </div>
             </div>
             {/* Search input */}
-            <div className="xs:hidden flex justify-start items-center w-1/2 rounded-md bg-[#FF9900] text-black">
+            <div className="xs:hidden lg:flex justify-start items-center lg:w-1/3 xl:w-1/2 rounded-md bg-[#FF9900] text-black">
                 <input
                     type="text"
                     placeholder="Search Amazon"
-                    className="w-11/12 px-2 py-2 text-base font-medium outline-none rounded-l-md border-2  border-transparent focus:border-[#FF9900] transition-all duration-300"
+                    className="w-11/12 px-2 py-2 lg:text-sm xl:text-base font-medium outline-none rounded-l-md border-2  border-transparent focus:border-[#FF9900] transition-all duration-300"
                 />
                 <AiOutlineSearch className=" text-3xl mx-auto text-white" />
             </div>
             {/* Favorites,Cart,Account */}
-            <div className=" flex justify-center items-center gap-7 [&>*]:cursor-pointer">
+            <div className="flex justify-center items-center gap-7 [&>*]:cursor-pointer">
                 <Link href="/favorites">
-                    <span className="xs:hidden flex justify-start items-center relative text-lg font-medium gap-1  px-2 py-1 rounded-md border-2 border-transparent hover:border-[#FF9900] transition-all duration-300">
+                    <span className="xs:hidden lg:flex justify-start items-center relative lg:text-base xl:text-lg font-medium gap-1  px-2 py-1 rounded-md border-2 border-transparent hover:border-[#FF9900] transition-all duration-300">
                         Favorites
                         <MdOutlineFavoriteBorder className="text-2xl" title="Favorites" />
                         {userFavoritesData.length > 0 && (
@@ -56,7 +56,7 @@ function Navbar() {
                     </span>
                 </Link>
                 <Link href="/cart">
-                    <span className="xs:hidden flex justify-start items-center relative text-lg font-medium gap-1  px-2 py-1 rounded-md border-2 border-transparent hover:border-[#FF9900] transition-all duration-300">
+                    <span className="xs:hidden lg:flex justify-start items-center relative lg:text-base xl:text-lg font-medium gap-1  px-2 py-1 rounded-md border-2 border-transparent hover:border-[#FF9900] transition-all duration-300">
                         Cart
                         <FiShoppingCart className="text-3xl" title="Cart" />
                         {userCartData.length > 0 && (
@@ -67,7 +67,7 @@ function Navbar() {
                     </span>
                 </Link>
 
-                <button className="bg-[#FF9900] xs:py-1 xs:px-2 xs:text-xs py-2 px-3 text-sm font-medium uppercase rounded-md ">
+                <button className="bg-[#FF9900] xs:py-1 xs:px-2 xs:text-xs lg:py-2 lg:px-3 lg:text-sm font-medium uppercase rounded-md ">
                     Sign In
                 </button>
                 <GiHamburgerMenu
@@ -85,7 +85,7 @@ function Navbar() {
             )}
             <div
                 className={`h-screen xs:w-1/2 md:w-1/3 bg-[#131921] z-50  top-0 right-0 bottom-0  xs:fixed lg:hidden shadow-md transition-all duration-300 p-4 ${
-                    sidebarMenu ? ` right-0` : `-right-1/2`
+                    !sidebarMenu ? `-right-[200vw]` : `right-0`
                 }`}
             >
                 <span
@@ -95,18 +95,36 @@ function Navbar() {
                     <IoCloseSharp className=" bg-[#272d36] p-1 rounded-full" />
                 </span>
                 <ul className="flex flex-col justify-start items-start gap-5 mt-10 text-base font-medium">
-                    <li className="flex justify-start items-center gap-2 bg-[#FF9900] w-96 p-3 rounded-md">
+                    <li
+                        onClick={() => setSidebarMenu(false)}
+                        className="flex justify-start items-center gap-2 bg-[#FF9900] w-96 p-3 rounded-md"
+                    >
                         <span>Deliver To</span>
                         <HiOutlineLocationMarker className="text-xl" />
                     </li>
+                    <Link href="/">
+                        <li
+                            onClick={() => setSidebarMenu(false)}
+                            className="flex justify-start items-center gap-2 bg-[#FF9900] w-96 p-3 rounded-md"
+                        >
+                            <span> Home</span>
+                            <AiOutlineHome className="text-xl" />
+                        </li>
+                    </Link>
                     <Link href="/favorites">
-                        <li className="flex justify-start items-center gap-2 bg-[#FF9900] w-96 p-3 rounded-md">
+                        <li
+                            onClick={() => setSidebarMenu(false)}
+                            className="flex justify-start items-center gap-2 bg-[#FF9900] w-96 p-3 rounded-md"
+                        >
                             <span> Favorites</span>
                             <MdOutlineFavoriteBorder className="text-xl" />
                         </li>
                     </Link>
                     <Link href="/cart">
-                        <li className="flex justify-start items-center gap-2 bg-[#FF9900] w-96 p-3 rounded-md">
+                        <li
+                            onClick={() => setSidebarMenu(false)}
+                            className="flex justify-start items-center gap-2 bg-[#FF9900] w-96 p-3 rounded-md"
+                        >
                             <span> Cart</span>
                             <FiShoppingCart className="text-xl" />
                         </li>

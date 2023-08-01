@@ -29,7 +29,8 @@ function Products({ productsData }: PropsType) {
                                 alt="Product Image"
                                 width={300}
                                 height={300}
-                                className="  object-cover scale-90 hover:scale-100 transition-all duration-300 xs:w-44 xs:h-3w-44 "
+                                priority
+                                className="object-cover scale-90 hover:scale-100 transition-all duration-300 xs:w-44 lg:w-64"
                             />
                             <div className="flex flex-col justify-center items-center xs:text-lg lg:text-2xl text-zinc-700  bg-zinc-100 rounded-md absolute divide-y-2 divide-zinc-300 border-2 border-zinc-300 right-2 bottom-1/2 translate-x-16 group-hover:translate-x-0 transition-all duration-300 [&>*]:hover:cursor-pointer">
                                 <span
@@ -56,8 +57,8 @@ function Products({ productsData }: PropsType) {
                             <p className="opacity-50 font-medium text-sm">
                                 {product.category}
                             </p>
-                            <p className="font-semibold xs:text-base md:text-sm lg:text-lg">
-                                {product.title}
+                            <p className="font-semibold xs:text-base md:text-sm lg:text-sm xl:text-base">
+                                {product.title.substring(0, 24)}
                             </p>
                             <p className="flex justify-between items-center xs:text-sm  font-semibold">
                                 <span>

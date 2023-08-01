@@ -19,44 +19,45 @@ function CartPage() {
     const { userCartData } = useSelector((state: StateType) => state.product);
     const dispatch = useDispatch();
     return (
-        <main className="bg-zinc-100 w-full min-h-screen p-4 grid grid-cols-12 gap-5">
+        <main className="bg-zinc-100 w-full min-h-screen xs:p-2 lg:p-4  grid grid-cols-12 gap-5">
             {userCartData.length > 0 ? (
                 <>
-                    <div className="col-span-9">
+                    <div className="xs:col-span-12 lg:col-span-9">
                         <h1 className="bg-zinc-200 p-4 rounded-md text-xl font-semibold shadow-md">
                             Your Shopping Cart
                         </h1>
-                        <div className="mt-5 mb-20  space-y-5 p-4 bg-zinc-200 rounded-md">
+                        <div className="mt-5 lg:mb-20  space-y-5 p-4 bg-zinc-200 rounded-md xs:col-span-12">
                             {userCartData.map((product: StoreProductType) => (
                                 <div
                                     key={product._id}
-                                    className="grid grid-cols-12 gap-2 h-40 rounded-md bg-zinc-100 shadow-sm"
+                                    className="col-span-6 grid grid-cols-12  xs:gap-0 lg:gap-2 lg:h-40 rounded-md bg-zinc-100 shadow-sm"
                                 >
                                     {/* Product image */}
-                                    <div className="col-span-2 flex justify-start items-center ">
+                                    <div className="xs:col-span-12  lg:col-span-2 flex lg:justify-start xs:justify-center items-center ">
                                         <Image
                                             src={product.image}
                                             width={120}
                                             height={120}
                                             alt="Product Image"
-                                            className="h-full w-auto"
+                                            priority
+                                            className="lg:h-full lg:w-auto xs:h-full xs:w-20"
                                         />
                                     </div>
                                     {/* Product details */}
-                                    <div className="col-span-7 p-3 flex flex-col justify-between items-start ">
-                                        <h3 className="text-xl font-medium">
+                                    <div className="xs:col-span-12 lg:col-span-7 p-3 flex flex-col justify-between items-start ">
+                                        <h3 className="xs:text-sm lg:text-xl font-medium">
                                             {product.title}
                                         </h3>
-                                        <p className="text-sm font-medium opacity-50">
+                                        <p className="xs:text-xs lg:text-sm font-medium opacity-50">
                                             {product.category}
                                         </p>
-                                        <p className="text-sm font-medium opacity-70">
-                                            {product.description}
+                                        <p className="xs:hidden lg:block lg:text-sm font-medium opacity-70">
+                                            {product.description.substring(0, 120)}
                                         </p>
                                     </div>
                                     {/* Price,count and remove product  */}
-                                    <div className="col-span-3 p-4  flex flex-col justify-between items-stretch">
-                                        <p className="flex justify-between items-center font-semibold text-base">
+                                    <div className="xs:col-span-12 lg:col-span-3 p-4  flex flex-col gap-2 justify-between items-stretch">
+                                        <p className="flex justify-between items-center font-semibold xs:text-sm lg:text-base">
                                             <span>
                                                 <FormatterPrice amount={product.price} />
                                             </span>
@@ -101,14 +102,14 @@ function CartPage() {
                             <div className="grid grid-cols-12 rtl">
                                 <button
                                     onClick={() => dispatch(restCart())}
-                                    className=" col-span-3 font-semibold text-base uppercase w-full p-2 rounded-md  bg-red-400 hover:bg-red-600 text-white transition-all duration-300"
+                                    className="xs:col-span-12 lg:col-span-3 font-semibold text-base uppercase w-full p-2 rounded-md  bg-red-400 hover:bg-red-600 text-white transition-all duration-300"
                                 >
                                     Rest Cart
                                 </button>
                             </div>
                         </div>
                     </div>
-                    <div className="col-span-3">
+                    <div className="xs:col-span-12 lg:col-span-3">
                         <h1 className="bg-zinc-200 p-4 rounded-md text-xl font-semibold shadow-md">
                             Payments
                         </h1>
