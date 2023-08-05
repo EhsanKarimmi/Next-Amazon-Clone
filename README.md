@@ -1,4 +1,4 @@
-## Next Js Amazon Clone
+# Next Js Amazon Clone
 
-[Demo]([https://nextjs.org/](https://next-amazon-clone-ehsankarimmi.vercel.app/))
+[Demo](https://nextjs.org/](https://next-amazon-clone-ehsankarimmi.vercel.app/)
 
