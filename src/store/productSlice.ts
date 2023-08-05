@@ -5,7 +5,6 @@ const initialState: InitialStateType = {
     userCartData: [],
     userFavoritesData: [],
     allProducts: [],
-    userInformation: null,
 };
 
 export const productSlice = createSlice({
@@ -55,15 +54,18 @@ export const productSlice = createSlice({
                 return product._id !== action.payload._id;
             });
         },
+        deleteFavorite: (state, action) => {
+            state.userFavoritesData = state.userFavoritesData.filter(
+                (product: StoreProductType) => {
+                    return product._id !== action.payload._id;
+                }
+            );
+        },
+
         restCart: (state) => {
             state.userCartData = [];
         },
-        addUser: (state, action) => {
-            state.userInformation = action.payload;
-        },
-        removeUser: (state) => {
-            state.userInformation = null;
-        },
+
         setAllProducts: (state, action) => {
             state.allProducts = action.payload;
         },
@@ -75,8 +77,7 @@ export const {
     addToFavorites,
     increaseQuantity,
     decreaseQuantity,
-    addUser,
-    removeUser,
+    deleteFavorite,
     setAllProducts,
     restCart,
     deleteProduct,

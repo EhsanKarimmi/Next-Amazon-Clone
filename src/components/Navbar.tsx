@@ -84,7 +84,7 @@ function Navbar() {
                 ></main>
             )}
             <div
-                className={`h-screen xs:w-1/2 md:w-1/3 bg-[#131921] z-50  top-0 right-0 bottom-0  xs:fixed lg:hidden shadow-md transition-all duration-300 p-4 ${
+                className={`h-screen xs:w-1/2 md:w-1/3 bg-[#131921] z-50  top-0 bottom-0  xs:fixed lg:hidden shadow-md transition-all duration-500 p-4  ${
                     !sidebarMenu ? `-right-[200vw]` : `right-0`
                 }`}
             >

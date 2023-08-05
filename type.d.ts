@@ -27,13 +27,12 @@ export interface InitialStateType {
     userCartData: StoreProductType[];
     userFavoritesData: StoreProductType[];
     allProducts: StoreProductType[];
-    userInformation: null | string;
 }
 
 export interface StateType {
     userCartData: StoreProductType[];
     userFavoritesData: StoreProductType[];
     allProducts: StoreProductType[];
-    userInformation: null | string;
+
     product: any;
 }
