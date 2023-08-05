@@ -7,14 +7,7 @@ import Footer from "@/components/Footer";
 import { Provider } from "react-redux";
 import { persistor, store } from "@/store/store";
 import { PersistGate } from "redux-persist/integration/react";
-
-import type { Metadata } from "next";
 import LoadingPage from "./loading";
-
-export const metadata: Metadata = {
-    title: "Amazon Clone",
-    description: "Next.Js Amazon Clone",
-};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
